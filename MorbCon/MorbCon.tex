@@ -1,0 +1,44 @@
+%%This is a very basic article template.
+%%There is just one section and two subsections.
+\documentclass{article}
+
+\usepackage{amsmath}
+\usepackage{caption}
+\usepackage{placeins}
+\usepackage{graphicx}
+\usepackage{subcaption}
+\usepackage{tikz}
+%\usepackage{mathabx} % for \widebar
+%\usepackage[active,tightpage]{preview}
+\usepackage{natbib}
+\bibpunct{(}{)}{,}{a}{}{;} 
+\usepackage{url}
+\usepackage{nth}
+\usepackage{authblk}
+% for the d in integrals
+\newcommand{\dd}{\; \mathrm{d}}
+\newcommand{\tc}{\quad\quad\text{,}}
+\newcommand{\tp}{\quad\quad\text{.}}
+\defcitealias{HMD}{HMD}
+\defcitealias{HFD}{HFD}
+\usepackage[titletoc,title]{appendix}
+
+
+\begin{document}
+
+
+\title{Age structure and lost years of life}
+
+\author[1]{Tim Riffe\thanks{riffe@demogr.mpg.de}}
+\author[2]{A{\"i}da Sol\'{e} Aur\'{o}}
+\affil[1]{Max Planck Institute for Demographic Research}
+\affil[2]{Universitat Pompeu Fabra}
+
+\maketitle
+
+Some words
+
+\end{document}
+
+\bibliographystyle{plainnat}
+  \bibliography{references}  
