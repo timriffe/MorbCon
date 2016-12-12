@@ -1,7 +1,7 @@
 %%This is a very basic article template.
 %%There is just one section and two subsections.
 \documentclass{article}
-
+\usepackage{natbib}
 \usepackage{amsmath}
 \usepackage{caption}
 \usepackage{placeins}
@@ -27,11 +27,10 @@
 
 \begin{document}
 
-
 \title{Morbidity concentration and compression}
 
 \author[1]{Tim Riffe\thanks{riffe@demogr.mpg.de}}
-\author[2]{A{\"i}da Sol\'{e} Aur\'{o}}
+\author[2]{A{\"i}da Sol\'{e} i Aur\'{o}}
 \affil[1]{Max Planck Institute for Demographic Research}
 \affil[2]{Universitat Pompeu Fabra}
 
@@ -40,20 +39,41 @@
 The concept of morbidity compression is typically instrumentalized by taking a
 ratio of expected years lived in poor health, $e^U$, to total expected years lived,
 $e^T$, $\sfrac{e^U}{e^T}$. It is therefore a proportion derived from two means,
-usually conditioned on survival to some age. If after some time this proportion
-decreases, then morbidity is said to have compressed. This is intuitive because on average a smaller proportion of the average years lived is spent in poor
-health. Morbidity has been squeezed into a relatively smaller section of
-life. However, not much else can be said from this measure:
-it says nothing of how morbidity is spread over ages, how much of the change in compression is
-due to changes in the shape of morbidity, how much of it is due to postponement in
-morbidity onset, or whether the morbidity preceding each age at death remained
-the same, but the lifespan distribution simply changed. Such overlooked measures
-characterize late-life morbidity more completely, and provide better answers to
-the question of whether there is a survival-morbidity tradeoff. 
+and it is usually conditioned on survival to some age. If after some time this
+proportion decreases, then morbidity is said to have compressed. This is
+intuitive because on average a smaller proportion of life expectancy is spent in
+poor health, and therefore morbidity has been squeezed into a relatively smaller
+fraction of life. Various changes in morbidity patterns and longevity
+distributions can produce a change in compression, but this single
+measure can not separate them. Specifically, and for the case of late-life morbidity, the measure of
+morbidity compression does not indicate to what extent morbidity prevalence is
+concentrated in the final years of life. All else equal, we suppose that
+individual wellbeing is maximized for a given level of morbidity if
+morbidity prevalence is concentrated at the very end of life. We therefore
+propose a direct measure of late-life morbidity concentration that is both intuitive and clear to interpret: the prevalence-weighted average time-to-death.
 
 Compression is a meaningful measure, but we aim to enrich it by deriving a
-synthetic measure of morbidity concentration based on a more nuanced breakdown
-of morbidity prevalence by age and age-at-death (lifespan). 
+synthetic measure of morbidity concentration. The index of morbidity
+concentration is interpreted as how much a given morbidity condition is
+concentrated in the final year(s) of life. This index is based on a more
+nuanced breakdown of morbidity prevalence by age and age-at-death (lifespan). 
+
+
+Several morbidity and longevity scenarios can produce a given change in 
+compression. For example, morbidity may change its level, onset may
+postpone, or lengthening life may stretch morbidity into ever
+higher ages. These are all aspects of morbidity illustrated in the morbidity
+diagrams of James Fries \citep[e.g.,][]{fries2003measuring}, but not directly detectable
+or separable using the measure of morbidity compression. Another simple scenario
+is that the morbidity prevalence leading up to each age at death remains the
+same, but the lifespan distribution simply changes. Finally,   Such overlooked measures
+characterize late-life morbidity more completely, and provide better answers to the question of whether there is a survival-morbidity tradeoff.
+
+Compression is a meaningful measure, but we aim to enrich it by deriving a
+synthetic measure of morbidity concentration. The index of morbidity
+concentration is interpreted as how much a given morbidity condition is
+concentrated in the final year(s) of life. This index is based on a more
+nuanced breakdown of morbidity prevalence by age and age-at-death (lifespan). 
 
 
 
@@ -61,4 +81,4 @@ of morbidity prevalence by age and age-at-death (lifespan).
 \end{document}
 
 \bibliographystyle{plainnat}
-  \bibliography{references}  
+  \bibliography{references.bib}  
