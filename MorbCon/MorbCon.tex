@@ -1,9 +1,11 @@
 %%This is a very basic article template.
 %%There is just one section and two subsections.
 \documentclass{article}
+\usepackage[top=2.5cm, bottom=2.5cm, left=3cm, right=3cm]{geometry}
 
 \usepackage{appendix}
 \usepackage{amsmath}
+\usepackage{amsfonts}
 \usepackage{caption}
 \usepackage{placeins}
 \usepackage{graphicx}
@@ -44,15 +46,26 @@
 
 \begin{document}
 
-\title{Morbidity concentration and compression}
+\title{Morbidity dispersion and compression}
 
 \author[1]{Tim Riffe\thanks{riffe@demogr.mpg.de}}
-\author[2]{A{\"i}da Sol\'{e} i Auro}
-\author[1]{Maarten Bijslma}
+\author[2]{A{\"i}da Sol\'{e} Auro}
+\author[1]{Maarten J. Bijlsma}
 \affil[1]{Max Planck Institute for Demographic Research}
 \affil[2]{Universitat Pompeu Fabra}
 
 \maketitle
+
+\begin{abstract}
+The common measure of morbidity compression is insensitive to a variety of
+shape-related aspects of late-life morbidity prevalence. We offer a simple
+dispersion measure to account for how much a given morbidity condition is concentrated in at the very end of life.
+We estimate morbidity compression and
+dispersion for a set of cohorts in the US Health and Retirement Study and the
+English Longitudinal Study of Ageing. We argue that all else equal, it is preferable for morbidity to be concentrated
+rather than dispersed, and this is why the measure is worth calculating
+alongside compression when data permits. 
+\end{abstract}
 
 The concept of morbidity compression is typically instrumentalized by taking a
 ratio of expected years lived in poor health, $e^U$ to total expected years
@@ -67,47 +80,53 @@ distributions can produce a change in compression, but this single
 measure cannot separate them. Specifically, and for the case of late-life morbidity, the measure of
 morbidity compression does not indicate to what extent morbidity prevalence is
 concentrated in the final years of life. All else equal, we suppose that
-individual both wellbeing and equality are maximized for a given level of
+individual wellbeing and equality are both maximized for a given level of
 morbidity and longevity if morbidity prevalence is concentrated in a narrow set of years at the very end of
 life.
-We therefore propose a direct measure of late-life morbidity concentration that
+We therefore propose a direct measure of late-life morbidity dispersion that
 is both intuitive and clear to interpret: how close to to the moment of death a given morbidity is
 concentrated, calculated as the prevalence-weighted average
-time-to-death, and we call this measure $\Phi$. 
+time-to-death, or dispersion, $\mathbb{D}$.
 
 \section*{Definitions}
-Compression, $\kappa$, is defined as:
+Compression, $\mathbb{C}$, is here defined as:
 \begin{align}
-\kappa(a) &= \frac{e^U(a)}{e^T(a)}
+\mathbb{C}(a) &= 1 - \frac{e^U(a)}{e^T(a)} \tc
 \intertext{where}
 e^T(a) &=\frac{1}{\ell(a)} \int_a^\omega \ell(x) \dd x \\
-e^U(a) &=\frac{1}{\ell(a)} \int_a^\omega \ell(x)\pi(x) \dd x
+e^U(a) &=\frac{1}{\ell(a)} \int_a^\omega \ell(x)\pi(x) \dd x \tp
 \end{align}
-Here, $\kappa$ is conditional on survival to age $a$, because we are
+Here, $\mathbb{C}$ is conditional on survival to age $a$, because we are
 interested in old-age morbidity, so we typically choose $a$ to be something like
 65 or 70. $l(x)$ is lifetable survivorship, and $\pi(x)$ is the
-age-specific prevalence pattern of morbidity.
+age-specific prevalence of morbidity. We take the complement of the
+ratio so that \textit{more} compressed corresponds to a higher value in
+$\mathbb{C}$.
 
-Concentration, $\Phi$, on the other hand measures the compactness of morbidity
+$\mathbb{D}$, on the other hand measures the spread of morbidity
 at the end of life. Assuming for a moment perfect equality of longevity, it
 can be defined as:
 \begin{equation}
-\Phi = \frac{\int_a^\omega (\omega - x)\pi(x) \dd x}{\int_a^\omega \pi(x) \dd
-x}
+\mathbb{D} = \frac{\int_a^\omega (\omega - x)\pi(x) \dd x}{\int_a^\omega \pi(x) \dd
+x} \tp
 \end{equation}
 Slightly more realistically, since lives are of different lengths, we can
 still keep things simple by letting longevity vary, but assuming the same
 time-to-death trajectory of morbidity, $\pi^\star(y)$, where $y$ denotes years
 left to live:
 \begin{equation}
-\Phi = \frac{\int_0^{\omega-a} y \pi^\star(y) \dd
+\mathbb{D} = \frac{\int_0^{\omega-a} y \pi^\star(y) \dd
 y}{\int_0^{\omega-a}\pi^\star(y)\dd y}
 \end{equation}
-If we want to allow both lifespans and the time-to-death trajectory to vary,
-then define a morbidity prevalence function that varies by both age and
-time-to-death such as those described by \citet{riffe2015ttd}.
+If we want to allow both lifespans and the time-to-death trajectories to vary
+by lifespan, then define a morbidity prevalence function that varies by both age
+and time-to-death, $\pi^\star(a,y)$ such as the cohort patterns described by
+\citet{riffe2015ttd}. In this case prevalence is weighted by the deaths
+distribution, usually the lifetable deaths distribution, $f(a)$. In this case we
+assume a unity radix, and we must decide between period and cohort perspectives.
+We will elaborate on this in the full paper.
 
-\textit{add equation here}
+%\textit{add equation here}
 %Compression is a meaningful measure, but we aim to enrich it by deriving a
 %synthetic measure of morbidity concentration. The index of morbidity
 %concentration is interpreted as how much a given morbidity condition is
@@ -117,7 +136,7 @@ time-to-death such as those described by \citet{riffe2015ttd}.
 
 \section*{Morbidity and longevity scenarios}
 Several morbidity and longevity scenarios can produce a given change in 
-compression. For example, morbidity may change its level, onset may
+dispersion. For example, morbidity may change its level, onset may
 postpone, or lengthening life may stretch morbidity into ever
 higher ages. These aspects of morbidity are all illustrated in the morbidity
 diagrams of James Fries \citep[e.g.,][]{fries2003measuring}, but such
@@ -130,19 +149,19 @@ better answers to the question of whether there is a survival-morbidity tradeoff
 Table~\ref{tab:scenarios} illustrates a set of Fries-like scenarios that is
 instructive to walk through. Assume that for a given scenario it is either the
 case that all lives are of the same length, or that lives of different lengths
-all have the same average end-of-life morbidity trajectory. The length of
-lifeline in each scenario is proportional to a conditional remaining lifespan,
-while the area shaded in grey is average morbidity prevalence. Scenarios A
-through E all have a length of life equal to the baseline scenario, while F
-through H have longer lives. Scenarios A, B, F, and H have morbidity triangles
+all have the same average end-of-life morbidity prevlence pattern. The length of
+the lifeline in each scenario is proportional to (conditional) remaining
+lifespan, while the area shaded in grey is the average morbidity prevalence
+pattern.
+Scenarios A through E all have a length of life equal to the baseline scenario, while F through H have longer lives. Scenarios A, B, F, and H have morbidity triangles
 of equal area to the baseline (equal $e^U$). Scenarios E and G have morbidity
 triangles that are larger than baseline (higher $e^U$). Scenarios C and D have
 morbidity triangles drawn smaller than baseline (lower $e^U$). Scenarios A, D,
 F, and H have postponed morbidity onset.
 
- \begin{table}[h!]
+ \begin{table}[ht!]
 \begin{tabular}{D C D D D D}
-~ & Scenario & $e^U$ & $e^T$ & $\kappa$ & $\Phi$ \\
+~ & Scenario & $e^U$ & $e^T$ & $\mathbb{C}$ & $\mathbb{D}$ \\
 \hline
 Base & \scen{1} & ~ & ~ & ~ & ~ \\
 A & \scen{2} & $=$ & $=$ & $=$ & $\downarrow$ \\
@@ -159,27 +178,52 @@ compression differs from concentration.}
 \label{tab:scenarios}
 \end{table}
 
-The arrows in table~\ref{tab:scenarios} for compression, $\kappa$ and
-concentration $\Phi$ may be counterintuitive at first, because they refer to the
-value of the measure. High compression and concentration are close to zero.
 Scenarios A through H combine in different ways to produce different outcomes
-for $\kappa$ and $\Phi$, and in many cases these to measures do not change in
-the same direction. Clearly the best scenario here is for baseline to change to
+for $\mathbb{C}$ and $\mathbb{D}$, and in many cases these two measures do not
+change in the same direction. Clearly the best scenario here is for baseline to change to
 H, while the worst scenarios are either E or G (higher morbidity prevalence
-with no increase in lifespan, or else increases in both).
+with no increase in lifespan, or else increases in both). We now discuss the
+scenarios in order.
 
-\textit{add more description}
+Scenario A yields the same morbidity compression, but lower diserpersion.
+Morbidity amounts to the same total, but is more concetrated at the end of life.
+Scenario B is the opposite: compression does not change, but morbidity extends
+into lower ages and ultimately \textit{may} affect fewer individuals. In
+scenario C each value of $\pi(a)$ is halved, increasing
+$\mathbb{C}$. However, the underlying shape does not change, and $\mathbb{D}$
+therefore stays the same. In scenario D morbidity onset is later, but the
+ultimate prevalence at death is the same. The volume decreases, and $\mathbb{C}$
+therefore increases, but the shape also becomes more compact, which decreases
+$\mathbb{D}$. In scenario E $\pi(a)$ is doubled, thereby decreasing $\mathbb{C}$.
+Since the underlying shape does not change, $\mathbb{D}$ remains unchanged. In
+scenerio F morbidity is exactly the same, but onset is postponed, and life
+extended an equal amount. This acts to decrease $\mathbb{C}$, but it does not
+affect $\mathbb{D}$. In scenario G life extends, and the prevalence pattern
+keeps increasing at the same pace from the baseline scenario (Fries' stretching
+scenario), thereby increasing both $\mathbb{C}$ and $\mathbb{D}$. H is the
+golden scenario where increasing longevity is matched with a more compact and
+less voluminous morbidity pattern, which acts to decrease both $\mathbb{C}$ and
+$\mathbb{D}$.
 
+We have provided scenarios in which compression and dispersion respond
+in the same way or differently to various longevity and morbidity scenarios. We
+have not shown how these different scenarios would produce different
+responses in $\mathbb{C}$ and $\mathbb{D}$ under changes in the
+shape or location of the lifespan distribution, nor more involved
+interaction scenarios. These things may be discussed in the final paper, or we
+might just make some assumptions to keep it simple.
+\FloatBarrier
 \section*{Data and methods}
-say we'll use HRS and ELSA, and natural splines in a general additive framework.
-\section*{Results}
-\textit{no need to show anything yet}
-\section*{Conclusions}
-Compression is a meaningful measure, but we aim to enrich it by deriving a
-synthetic measure of morbidity concentration. The index of morbidity
-concentration is interpreted as how much a given morbidity condition is
-concentrated in the final year(s) of life. This index is based on a more
-nuanced breakdown of morbidity prevalence by age and age-at-death (lifespan). 
+We will do some empirical demonstrations to compare these two indicators for a
+small set of health conditions that is to be decided. The health conditions will
+be selected based on both substantive and illustrative criteria. Data will come
+from the RAND version of the US Health and Retirement Study \citep{HRS} and
+the English Longitudinal Study of Ageing \citep{steptoe2012cohort}. Data
+processing will be set up similarly to \citet{riffe2015ttd}, and smoothed
+prevalences by age and time-to-death will be derived using natural splines
+over age, time-to-death, and birth cohort, in a general additive framework. We
+will then report trends in compression versus dispersion for England and the US,
+and further explain why dispersion is a good measure to complement compression.
 
 \bibliographystyle{plainnat}
   \bibliography{references.bib}  
