@@ -120,6 +120,7 @@ par(xaxs = "i",yaxs = "i",mai = c(.8,.8,.1,.3))
 makeTrend(FemalesD4, ylim=c(2,7))
 highlightTrend(FemalesD4, varname = c("adl5_1","adl5_2","adl5_3"), col = ADL3cols,lwd=3)
 text(1920,FemalesD4[21,c("adl5_1","adl5_2","adl5_3")],1:3,pos=3,cex=1.5)
+text(1920,FemalesD4[21,"adl5_1"]+1,"ADL",pos=3,cex=1.5)
 dev.off()
 
 pdf("DGDtalk/Figures/Ftr3.pdf",height=6,width=3)
@@ -127,8 +128,10 @@ par(xaxs = "i",yaxs = "i",mai = c(.8,.8,.1,.3))
 makeTrend(FemalesD4, ylim=c(2,7))
 highlightTrend(FemalesD4, varname = c("adl5_1","adl5_2","adl5_3"), col = dimcol(ADL3cols),lwd=3)
 text(1920,FemalesD4[21,c("adl5_1","adl5_2","adl5_3")],1:3,pos=3,cex=1.5,col = gray(.4))
+text(1920,FemalesD4[21,"adl5_1"]+1,"ADL",pos=3,cex=1.5,col = gray(.4))
 highlightTrend(FemalesD4, varname = c("iadl5_1","iadl5_2","iadl5_3"), col = IADL3cols,lwd=3)
 text(1910,FemalesD4[11,c("iadl5_1","iadl5_2","iadl5_3")],1:3,pos=3,cex=1.5)
+text(1910,FemalesD4[11,"iadl5_1"]+1,"IADL",pos=3,cex=1.5)
 dev.off()
 
 pdf("DGDtalk/Figures/Mtr2.pdf",height=6,width=3)
@@ -136,6 +139,7 @@ par(xaxs = "i",yaxs = "i",mai = c(.8,.8,.1,.3))
 makeTrend(MalesD4, ylim=c(2,7))
 highlightTrend(MalesD4, varname = c("adl5_1","adl5_2","adl5_3"), col = ADL3cols,lwd=3)
 text(1920,MalesD4[21,c("adl5_1","adl5_2","adl5_3")],1:3,pos=3,cex=1.5)
+text(1920,MalesD4[21,"adl5_1"]+1,"ADL",pos=3,cex=1.5)
 dev.off()
 
 pdf("DGDtalk/Figures/Mtr3.pdf",height=6,width=3)
@@ -143,20 +147,22 @@ par(xaxs = "i",yaxs = "i",mai = c(.8,.8,.1,.3))
 makeTrend(MalesD4, ylim=c(2,7))
 highlightTrend(MalesD4, varname = c("adl5_1","adl5_2","adl5_3"), col = dimcol(ADL3cols),lwd=3)
 text(1920,MalesD4[21,c("adl5_1","adl5_2","adl5_3")],1:3,pos=3,cex=1.5,col = gray(.4))
+text(1920,MalesD4[21,"adl5_1"]+1,"ADL",pos=3,cex=1.5,col = gray(.4))
 highlightTrend(MalesD4, varname = c("iadl5_1","iadl5_2","iadl5_3"), col = IADL3cols,lwd=3)
 text(1910,MalesD4[11,c("iadl5_1","iadl5_2","iadl5_3")],1:3,pos=3,cex=1.5)
+text(1910,MalesD4[11,"iadl5_1"]+1,"IADL",pos=3,cex=1.5)
 dev.off()
-
-highlightTrend(MalesD4, varname = c("adl5_1"), col = cols5[1],lwd=2)
-highlightTrend(MalesD4, varname = c("adl5_1","adl5_2"), col = cols5[1:2],lwd=2)
-highlightTrend(MalesD4, varname = c("adl5_1","adl5_2","adl5_3"), col = ADL3cols,lwd=3)
-highlightTrend(MalesD4, varname = c("iadl5_1","iadl5_2","iadl5_3"), col = IADL3cols,lwd=3)
-
-
-highlightTrend(MalesD4, varname = c("adl5_3","srhpoor","psych","iadl5_3"), col = cols5[1:4],lwd=2)
-
-MalesD4[,c("adl5_3","adl5_2","adl5_3")]
 #
+#highlightTrend(MalesD4, varname = c("adl5_1"), col = cols5[1],lwd=2)
+#highlightTrend(MalesD4, varname = c("adl5_1","adl5_2"), col = cols5[1:2],lwd=2)
+#highlightTrend(MalesD4, varname = c("adl5_1","adl5_2","adl5_3"), col = ADL3cols,lwd=3)
+#highlightTrend(MalesD4, varname = c("iadl5_1","iadl5_2","iadl5_3"), col = IADL3cols,lwd=3)
+#
+#
+#highlightTrend(MalesD4, varname = c("adl5_3","srhpoor","psych","iadl5_3"), col = cols5[1:4],lwd=2)
+#
+#MalesD4[,c("adl5_3","adl5_2","adl5_3")]
+##
 #
 #D4  <- Res[,list(D4 = get_D_4(TTD,Prev,Age, Agemin=65)), by = list(Cohort, Sex, Varname)]
 #D4  <- data.frame(D4)
