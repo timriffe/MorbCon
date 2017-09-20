@@ -26,10 +26,16 @@
 \usepackage[utf8]{inputenc}
 
 \usepackage[mpidr]{./mpidr/beamerthemeMPIDR}
-
+\newcommand{\dd}{\; \mathrm{d}}
+\newcommand{\scen}[1]{\includegraphics[scale=.8]{Figures/scenarios/{scenario#1}.pdf}}
+\newcolumntype{C}{ >{\centering\arraybackslash} m{10cm} }
+\newcolumntype{D}{ >{\centering\arraybackslash} m{1.5cm} }
 %% Declaring title and author
-\title{Morbidity compression}
-\subtitle{Tim Riffe}		%%
+\title{Morbidity concentration and dispersion}
+\subtitle{\small{Tim Riffe, 
+A{\"i}da Sol\'{e} Auro, 
+Maarten J. Bijlsma}
+}		%%
 
 %%	the institute's logo
 \renewcommand{\mylogo}{\includegraphics[width=4.7in]{mpidr_logo_colour_en}}
@@ -54,15 +60,6 @@
 %-------------------
 
 \begin{frame}
-	\frametitle{Shout-outs}
-	\begin{block}{This work is a spin-off from papers with:}
-	Paul Chung, John MacInnes, Jeroen Spijker, Alyson van Raalte, Maarten Bijlsma
-	\end{block}
-	One or more of them may also join in the present work, but blame me for today's
-	ideas.
-\end{frame}
-
-\begin{frame}
 \frametitle{Fries' diagrams are a nice prop}
 \begin{center}
   \begin{tikzpicture}
@@ -82,7 +79,7 @@
     \node<2>
     (img2) {\includegraphics[width=.9\linewidth]{Figures/boxflip2.pdf}}; 
   \end{tikzpicture}\\ \vspace{5cm}
-  (if we all died at the same age then this stuff would be easy)
+
 \end{center}
 
 \end{frame}
@@ -122,48 +119,92 @@
 
 \begin{frame}
 \frametitle{Compression}
-\begin{block}{Complaint:}
-Although neither morbidity pattern changed, standard measures would conclude
-that the TTD morbidity compressed, and the age-pattern did not. DLY says nothing
-of concentration in the morbidity pattern.
+\begin{block}{Compression definition}
+The level of morbidity compression is the average proportion of life in good
+health, $\mathbb{C} = \frac{HLE}{LE}$.
 \end{block}
 
+
+\pause
 \begin{block}{Objective:}
-Separate morbidity levels and morbidity concentration.
+Separate morbidity levels and morbidity dispersion.
 \end{block}
 \end{frame}
 
 \begin{frame}
-\frametitle{Fries' diagrams are ignored in practice}
-\begin{center}
-  \begin{tikzpicture}
-    \node<1> (img1)
-    {\includegraphics[width=.8\linewidth]{Figures/FriesFigure1.pdf}}; 
-    \node<2>
-    (img2) {\includegraphics[width=.8\linewidth]{Figures/FriesFigure2.pdf}}; 
-  \end{tikzpicture}
-\end{center}
+\frametitle{Dispersion}
+\begin{block}{Dispersion definition}
+Morbidity dispersion, $\mathbb{D}$, is the average time-to-death of late-life
+morbidity prevalence.
+\end{block}
+\pause
+
+\begin{block}{Formal definition}
+\begin{equation}
+\mathbb{D} = \frac{\int_0^{\omega} y \pi^\star(y) \dd
+y}{\int_0^{\omega}\pi^\star(y)\dd y}
+\end{equation}
+where $a$ is age, $y$ is time until death, and $\pi^\star(y)$ is morbidity
+prevalance by time to death.
+\end{block}
+
+\pause
+Or one might rather weight a lifespan-varying $\pi(y,l)$, by the length-of-life
+distribution.
+
 \end{frame}
 
 \begin{frame}
-\frametitle{Schematic time-to-death patterns}
-\vspace{-2em}
-\begin{center}
-  \begin{tikzpicture}
-    \node<1> (img1)
-    {\includegraphics[width=.8\linewidth]{Figures/CompareTTD1.pdf}}; 
-    \node<2>
-    (img2) {\includegraphics[width=.8\linewidth]{Figures/CompareTTD2.pdf}}; 
-    \node<3>
-    (img3) {\includegraphics[width=.8\linewidth]{Figures/CompareTTD3.pdf}}; 
-    \node<4>
-    (img4) {\includegraphics[width=.8\linewidth]{Figures/CompareTTD4.pdf}}; 
-  \end{tikzpicture}
-\end{center}
+\frametitle{Scenarios}
+\begin{tabular}{D C D D D D D}
+~ & Scenario & $ULE$ & $HLE$ & $LE$ & $\mathbb{C}$ & $\mathbb{D}$ \\
+\hline
+Base & \scen{1} & ~ & ~ & ~ & ~ & ~ \\
+\only<1>{ & \scen{0} & ~ & ~ & ~ & ~ & ~ \\}
+\only<2>{ & \scen{2} & $=$ & $=$ & $=$ & $=$ & $\downarrow$ \\}
+\only<3>{ & \scen{8} & $=$ & $=$ & $=$ & $=$ & $\uparrow$ \\}
+\only<4>{ & \scen{3} & $\downarrow$ & $\uparrow$ & $=$ & $\uparrow$ &  $=$ \\}
+\only<5>{ & \scen{9} & $\downarrow$ & $\uparrow$ & $=$ & $\uparrow$ & 
+$\downarrow$ \\} 
+\only<6>{ & \scen{4} & $\uparrow$ & $\downarrow$ & $=$ & $\downarrow$ &  $=$ \\}
+\only<7>{ & \scen{5} & $=$ & $\uparrow$ & $\uparrow$ & $\uparrow$ &  $=$ \\}
+\only<8>{ & \scen{6} & $\uparrow$ & $\uparrow$ & $\uparrow$ & $\downarrow$ & 
+$\downarrow$ \\} 
+\only<9>{ & \scen{7} & $=$ & $\uparrow$ & $\uparrow$ &  $\uparrow$ &
+$\downarrow$\\}
+\end{tabular}
 \end{frame}
+%\begin{frame}
+%\frametitle{Fries' diagrams are ignored in practice}
+%\begin{center}
+%  \begin{tikzpicture}
+%    \node<1> (img1)
+%    {\includegraphics[width=.8\linewidth]{Figures/FriesFigure1.pdf}}; 
+%    \node<2>
+%    (img2) {\includegraphics[width=.8\linewidth]{Figures/FriesFigure2.pdf}}; 
+%  \end{tikzpicture}
+%\end{center}
+%\end{frame}
+
+%\begin{frame}
+%\frametitle{Schematic time-to-death patterns}
+%\vspace{-2em}
+%\begin{center}
+%  \begin{tikzpicture}
+%    \node<1> (img1)
+%    {\includegraphics[width=.8\linewidth]{Figures/CompareTTD1.pdf}}; 
+%    \node<2>
+%    (img2) {\includegraphics[width=.8\linewidth]{Figures/CompareTTD2.pdf}}; 
+%    \node<3>
+%    (img3) {\includegraphics[width=.8\linewidth]{Figures/CompareTTD3.pdf}}; 
+%    \node<4>
+%    (img4) {\includegraphics[width=.8\linewidth]{Figures/CompareTTD4.pdf}}; 
+%  \end{tikzpicture}
+%\end{center}
+%\end{frame}
 
 \begin{frame}
-\frametitle{Real time-to-death patterns (HRS, ADL3)}
+\frametitle{Observed time-to-death patterns (HRS, ADL3)}
 \vspace{-1em}
 \begin{center}
   \begin{tikzpicture}
@@ -182,11 +223,32 @@ Separate morbidity levels and morbidity concentration.
 \end{center}
 \end{frame}
 
+%\begin{frame}
+%\frametitle{ \boldmath$\overline{TTD}$ patterns, psych problems and ADL3}
+%\begin{center}
+%\includegraphics[scale=.9]{Figures/TrendsMeanTTD.pdf}
+%\end{center}
+
 \begin{frame}
-\frametitle{ \boldmath$\overline{TTD}$ patterns, psych problems and ADL3}
-\begin{center}
-\includegraphics[scale=.9]{Figures/TrendsMeanTTD.pdf}
-\end{center}
+\frametitle{Results from HRS (RAND, vP), 82 measures}
+
+\begin{overlayarea}{\textwidth}{\textheight}
+\vspace{-2em}
+  \begin{columns}
+    \column{0.5\textwidth}
+      \centering 
+      Males \\ \vspace{.5em}
+      \only<1>{\includegraphics[height=1.1\textheight,keepaspectratio]{Figures/Mtr1.pdf}}
+      \only<2>{\includegraphics[height=1.1\textheight,keepaspectratio]{Figures/Mtr2.pdf}}
+      \only<3>{\includegraphics[height=1.1\textheight,keepaspectratio]{Figures/Mtr3.pdf}}
+    \column{0.5\textwidth}
+    \centering
+      Females \\ \vspace{.5em}
+      \only<1>{\includegraphics[height=1.1\textheight,keepaspectratio]{Figures/Ftr1.pdf}}
+      \only<2>{\includegraphics[height=1.1\textheight,keepaspectratio]{Figures/Ftr2.pdf}}
+      \only<3>{\includegraphics[height=1.1\textheight,keepaspectratio]{Figures/Ftr3.pdf}}
+  \end{columns}
+  \end{overlayarea}
 
 \end{frame}
 

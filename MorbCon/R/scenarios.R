@@ -39,3 +39,9 @@ save.drawLL2(nr=6,to=8.5,init=5.5,prop=.75,col=gray(.7))
 save.drawLL2(nr=7,to=8.5,init=7.5,col=gray(.7))
 save.drawLL2(nr=8,to=7.5,init=4.5,prop=1/3,col=gray(.7))
 save.drawLL2(nr=9,init=6.5,prop=.5,col=gray(.7))
+
+
+pdf("/home/tim/git/MorbCon/MorbCon/DGDtalk/Figures/scenarios/scenario0.pdf", width=5,height=1)
+par(mai=c(0,0,0,0))
+plot(NULL, type = "n",xlim=c(0,1),ylim=c(0,1),xlab = "",ylab="",axes=FALSE)
+dev.off()
