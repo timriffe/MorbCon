@@ -71,7 +71,7 @@ lived, $e^T$.
 It is therefore a proportion derived from two means, and it is usually conditioned on survival to some age. If after some time this proportion
 decreases, then morbidity is said to have compressed. This is intuitive because on average a smaller proportion of life is spent in
 poor health, and therefore morbidity has been squeezed into a relatively smaller
-fraction of life.
+fraction of life. 
 
 Various changes in morbidity patterns and longevity
 distributions can produce a change in compression, but this single
@@ -82,7 +82,7 @@ individual wellbeing and equality are both maximized for a given level of
 morbidity and longevity if morbidity prevalence is concentrated in a narrow set of years at the very end of
 life.
 We therefore propose a direct measure of late-life morbidity dispersion that
-is both intuitive and clear to interpret: how close to to the moment of death a given morbidity is
+is both intuitive and clear to interpret: how close to the moment of death a given morbidity is
 concentrated, calculated as the prevalence-weighted average
 time-to-death, or dispersion, $\mathbb{D}$.
 
@@ -96,7 +96,7 @@ e^U(a) &=\frac{1}{\ell(a)} \int_a^\omega \ell(x)\pi(x) \dd x \tp
 \end{align}
 Here, $\mathbb{C}$ is conditional on survival to age $a$, because we are
 interested in old-age morbidity, so we typically choose $a$ to be something like
-65 or 70. $l(x)$ is lifetable survivorship, and $\pi(x)$ is the
+65 or 70. $l(a)$ is lifetable survivorship, and $\pi(a)$ is the
 age-specific prevalence of morbidity. We take the complement of the
 ratio so that \textit{more} compressed corresponds to a higher value in
 $\mathbb{C}$.
@@ -105,24 +105,23 @@ $\mathbb{D}$, on the other hand measures the spread of morbidity
 at the end of life. Assuming for a moment perfect equality of longevity, it
 can be defined as:
 \begin{equation}
-\mathbb{D} = \frac{\int_a^\omega (\omega - x)\pi(x) \dd x}{\int_a^\omega \pi(x) \dd
-x} \tp
+\mathbb{D}(a) = \frac{\int_a^\omega (\omega - x)\pi(x) \dd x}{\int_a^\omega
+\pi(x) \dd x} \tp
 \end{equation}
 Slightly more realistically, since lives are of different lengths, we can
 still keep things simple by letting longevity vary, but assuming the same
 time-to-death trajectory of morbidity, $\pi^\star(y)$, where $y$ denotes years
 left to live:
 \begin{equation}
-\mathbb{D} = \frac{\int_0^{\omega-a} y \pi^\star(y) \dd
+\mathbb{D}(a) = \frac{\int_0^{\omega-a} y \pi^\star(y) \dd
 y}{\int_0^{\omega-a}\pi^\star(y)\dd y}
 \end{equation}
 If we want to allow both lifespans and the time-to-death trajectories to vary
 by lifespan, then define a morbidity prevalence function that varies by both age
 and time-to-death, $\pi^\star(a,y)$ such as the cohort patterns described by
 \citet{riffe2015ttd}. In this case prevalence is weighted by the deaths
-distribution, usually the lifetable deaths distribution, $f(a)$. In this case we
-assume a unity radix, and we must decide between period and cohort perspectives.
-We will elaborate on this in the full paper.
+distribution, usually the lifetable deaths distribution, $f(a)$, preferably but
+not necessarily from the cohort perspective.
 
 %\textit{add equation here}
 %Compression is a meaningful measure, but we aim to enrich it by deriving a
@@ -172,7 +171,8 @@ G & \scen{6} & $\uparrow$ & $\uparrow$ & $\uparrow$ &  $\uparrow$ \\
 H & \scen{7} & $=$ & $\uparrow$ & $\downarrow$ &  $\downarrow$ \\
 \end{tabular}
 \caption{A variety of morbidity and longevity scenarios that illustrate how
-compression differs from concentration.}
+compression differs from concentration. Arrows and equalities are all with
+respect to the baseline scenario.}
 \label{tab:scenarios}
 \end{table}
 
@@ -199,9 +199,9 @@ extended an equal amount. This acts to decrease $\mathbb{C}$, but it does not
 affect $\mathbb{D}$. In scenario G life extends, and the prevalence pattern
 keeps increasing at the same pace from the baseline scenario (Fries' stretching
 scenario), thereby increasing both $\mathbb{C}$ and $\mathbb{D}$. H is the
-golden scenario where increasing longevity is matched with a more compact and
-less voluminous morbidity pattern, which acts to decrease both $\mathbb{C}$ and
-$\mathbb{D}$.
+golden scenario where increasing longevity is matched with a more compact but
+equally voluminous morbidity pattern, which acts to decrease both $\mathbb{C}$
+and $\mathbb{D}$.
 
 We have provided scenarios in which compression and dispersion respond
 in the same way or differently to various longevity and morbidity scenarios. We
