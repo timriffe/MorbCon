@@ -105,63 +105,66 @@
 %\end{center}
 
 %\end{frame}
-\begin{frame}
-\frametitle{Patterns matter if lifespans are mixed}
-\begin{center}
-  \begin{tikzpicture}
-    \node<1> (img1)
-    {\includegraphics[width=.7\linewidth]{Figures/lifelines1.pdf}}; 
-    \node<2>
-    (img2) {\includegraphics[width=.7\linewidth]{Figures/lifelines2.pdf}}; 
-    \node<3> (img3) {\includegraphics[width=.7\linewidth]{Figures/lifelines3.pdf}};
-  \end{tikzpicture}
-\end{center}
-\end{frame}
+%\begin{frame}
+%\frametitle{Patterns matter if lifespans are mixed}
+%\begin{center}
+%  \begin{tikzpicture}
+%    \node<1> (img1)
+%    {\includegraphics[width=.7\linewidth]{Figures/lifelines1.pdf}}; 
+%    \node<2>
+%    (img2) {\includegraphics[width=.7\linewidth]{Figures/lifelines2.pdf}}; 
+%    \node<3> (img3)
+%    % {\includegraphics[width=.7\linewidth]{Figures/lifelines3.pdf}};
+%  \end{tikzpicture}
+%\end{center}
+%\end{frame}
 
 
-\begin{frame}
-\frametitle{Patterns matter if lifespans are mixed}
-\begin{center}
-  \begin{tikzpicture}
-    \node<1> (img1)
-    {\includegraphics[width=.9\linewidth]{Figures/Japan1.pdf}}; 
-    \node<2>
-    (img2) {\includegraphics[width=.9\linewidth]{Figures/Japan2.pdf}}; 
-     \node<3>
-    (img3) {\includegraphics[width=.9\linewidth]{Figures/Japan3.pdf}}; 
+%\begin{frame}
+%\frametitle{Patterns matter if lifespans are mixed}
+%\begin{center}
+%  \begin{tikzpicture}
+%    \node<1> (img1)
+%    {\includegraphics[width=.9\linewidth]{Figures/Japan1.pdf}}; 
+%    \node<2>
+%    (img2) {\includegraphics[width=.9\linewidth]{Figures/Japan2.pdf}}; 
+%     \node<3>
+%    (img3) {\includegraphics[width=.9\linewidth]{Figures/Japan3.pdf}}; 
     % \node<4>
    % (img4) {\includegraphics[width=.9\linewidth]{Figures/Japan4.pdf}}; 
-     \node<4>
-    (img4) {\includegraphics[width=.9\linewidth]{Figures/Japan5.pdf}}; 
-     \node<5>
-    (img5) {\includegraphics[width=.9\linewidth]{Figures/Japan6.pdf}}; 
-  \end{tikzpicture}
-\end{center}
-\end{frame}
+%     \node<4>
+%    (img4) {\includegraphics[width=.9\linewidth]{Figures/Japan5.pdf}}; 
+%     \node<5>
+%    (img5) {\includegraphics[width=.9\linewidth]{Figures/Japan6.pdf}}; 
+%  \end{tikzpicture}
+%\end{center}
+%\end{frame}
 
-\begin{frame}
-\frametitle{Compression}
-\begin{block}{Compression definition}
-The level of morbidity compression is the average proportion of life in good
-health, $\mathbb{C} = \frac{HLE}{LE}$.
-\end{block}
-
-
-\pause
-\begin{block}{Objective:}
+\begin{frame}[plain]
+\Large
+\begin{block}{\Large Objective:}
 Separate morbidity levels and morbidity dispersion.
 \end{block}
 \end{frame}
 
-\begin{frame}
-\frametitle{Dispersion}
-\begin{block}{Dispersion definition}
+\begin{frame}[plain]
+\Large
+\begin{block}{\Large Compression definition}
+The level of morbidity compression is the average proportion of life in good
+health, $\mathbb{C} = \frac{HLE}{LE}$.
+\end{block}
+\end{frame}
+
+\begin{frame}[plain]
+\vspace{4em}
+\Large
+\begin{block}{\Large Dispersion definition}
 Morbidity dispersion, $\mathbb{D}$, is the average time-to-death of late-life
 morbidity prevalence.
 \end{block}
 \pause
 
-\begin{block}{Formal definition}
+\begin{block}{\Large Formal definition}
 \begin{equation}
 \mathbb{D} = \frac{\int_0^{\omega} y \pi^\star(y) \dd
 y}{\int_0^{\omega}\pi^\star(y)\dd y}
@@ -169,7 +172,7 @@ y}{\int_0^{\omega}\pi^\star(y)\dd y}
 where $y$ is time until death, and $\pi^\star(y)$ is morbidity
 prevalance by time to death.
 \end{block}
-
+\vspace{2em}
 \pause
 Or one might rather weight a lifespan-varying $\pi(y,l)$, by the length-of-life
 distribution.
@@ -177,7 +180,8 @@ distribution.
 \end{frame}
 
 \begin{frame}
-\frametitle{Scenarios}
+\begin{block}{\Large Scenarios}
+\vspace{2em}
 \begin{tabular}{D C D D D D D}
 ~ & Scenario & $ULE$ & $HLE$ & $LE$ & $\mathbb{C}$ & $\mathbb{D}$ \\
 \hline
@@ -195,6 +199,7 @@ $\downarrow$ \\}
 \only<9>{ & \scen{7} & $=$ & $\uparrow$ & $\uparrow$ &  $\uparrow$ &
 $\downarrow$\\}
 \end{tabular}
+\end{block}
 \end{frame}
 %\begin{frame}
 %\frametitle{Fries' diagrams are ignored in practice}
@@ -240,7 +245,7 @@ $\downarrow$\\}
     \node<8>  (img8) {\includegraphics[width=.7\linewidth]{Figures/adl31922.pdf}}; 
     \node<9>  (img9) {\includegraphics[width=.7\linewidth]{Figures/adl31923.pdf}}; 
     \node<10> (img10) {\includegraphics[width=.7\linewidth]{Figures/adl31924.pdf}}; 
-    \node<11> (img11) {\includegraphics[width=.7\linewidth]{Figures/adl31925.pdf}}; 
+    \node<11> (img11) {\includegraphics[width=.7\linewidth]{Figures/adl31925.pdf}};
   \end{tikzpicture}
 \end{center}
 \end{frame}
@@ -274,19 +279,19 @@ $\downarrow$\\}
 \end{frame}
 
 \begin{frame}
-\frametitle{Summary}
-\begin{block}{Measures}
+\Large
+\begin{block}{\Large Measures}
 Dispersion measures an aspect of the shape of morbidity prevalance, and it is a
 complementary index to compression. 
 \end{block}
 \pause
-\begin{block}{Trends}
+\begin{block}{\Large Trends}
 Dispersion of most morbidities changed less than 10\% between the 1905 and 1925
 cohorts, mostly in the direction of increased concentration of poor health
 conditions at the end of life.
 \end{block}
 \pause
-\begin{block}{Limitations}
+\begin{block}{\Large Limitations}
 This measure requires follow-up until death (but stable patterns might make
 prevalance less risky to extrapolate). 
 \end{block}
